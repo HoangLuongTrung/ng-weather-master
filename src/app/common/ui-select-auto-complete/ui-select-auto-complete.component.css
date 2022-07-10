@@ -1,0 +1,20 @@
+.menu-drop-down {
+    position: absolute;
+    left: 46px;
+    width: calc(50% - 46px);
+    max-height: 20em;
+    overflow: auto;
+    list-style: none;
+    padding: 0;
+    z-index: 99;
+}
+
+.menu-item {
+    background-color: white;
+    padding: 8px 16px;
+    font-size: 14px;
+}
+
+.menu-item:hover {
+    background-color: lightgray;
+}

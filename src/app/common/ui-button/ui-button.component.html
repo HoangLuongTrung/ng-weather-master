@@ -1,0 +1,28 @@
+<button type="button" (click)="onClick()" [ngClass]="currentStateClasses" [disabled]="isDisabled">
+    <div [ngSwitch]="currentState">
+        <div *ngSwitchCase="ButtonState.Working">
+            <ng-container *ngIf="isText(workingText); else load">
+                {{ workingText }}
+            </ng-container>
+            <ng-template #load>
+                <ng-template [ngTemplateOutlet]="workingText"></ng-template>
+            </ng-template>
+        </div>
+        <div *ngSwitchCase="ButtonState.Done">
+            <ng-container *ngIf="isText(doneText); else done">
+                {{ doneText }}
+            </ng-container>
+            <ng-template #done>
+                <ng-template [ngTemplateOutlet]="doneText"></ng-template>
+            </ng-template>
+        </div>
+        <div *ngSwitchDefault>
+            <ng-container *ngIf="isText(idleText); else ildeTpl">
+                {{ idleText }}
+            </ng-container>
+            <ng-template #ildeTpl>
+                <ng-template [ngTemplateOutlet]="idleText"></ng-template>
+            </ng-template>
+        </div>
+    </div>
+</button>
